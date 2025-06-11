@@ -1,0 +1,38 @@
+<h1>Character</h1>
+
+<try>
+
+  <@placeholder>Waiting for stream...</>
+
+  <await|character|=$global.characterPromise>
+
+    <table class="ui definition table">
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td>${character.name}</td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>${character.physicalDescription.gender}</td>
+        </tr>
+        <tr>
+          <td>Eye Color</td>
+          <td>${character.physicalDescription.eyeColor}</td>
+        </tr>
+        <tr>
+          <td>Hair Color</td>
+          <td>${character.physicalDescription.hairColor}</td>
+        </tr>
+        <tr>
+          <td>Skin Color</td>
+          <td>${character.physicalDescription.skinColor}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <a href=`${character.id}/edit` class="ui primary button">Edit</a>
+
+  </await>
+  
+</try>
