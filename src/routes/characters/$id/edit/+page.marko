@@ -1,0 +1,35 @@
+<h1>Character</h1>
+
+<try>
+
+  <@placeholder>Waiting for stream...</>
+
+  <await|character|=$global.characterPromise>
+
+    <form class="ui form">
+
+        <div class="field">
+          <img class="ui image" src=character.image alt="Character Image" />
+        </div>
+
+        <div class="two wide field">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Name" required value=character.name>
+        </div>
+
+        <gender-select value=character.physicalDescription.gender />
+        <eye-color-select value=character.physicalDescription.eyeColor />
+        <hair-color-select value=character.physicalDescription.hairColor />
+        <skin-color-select value=character.physicalDescription.skinColor />
+
+        <button class="ui primary button" type="submit">Save</button>
+
+    </form>    
+  </await>
+
+  <@catch|err|>
+    <!-- Displays if promise rejects -->
+    ${err.name} error: ${err.message}
+  </@catch>
+
+</try>
