@@ -1,0 +1,23 @@
+<try>
+
+  <@placeholder>Loading...</@placeholder>
+  <@catch|err|>${err.message}</@catch>
+  
+  <await|characters|=fetch(new URL("/api/characters", $global.url.origin)).then(res => res.json())>
+    <div class="ui three column grid">
+      <for|character| of=characters>
+        <div class="column">
+            <div class="ui fluid card">
+            <div class="image">
+                <img alt=character.name src=character.image />
+            </div>
+            <div class="content">
+                <a class="header" href=`characters/${character.id}`>${character.name}</a>
+            </div>
+            </div>
+        </div>
+      </for>
+    </div>
+  </await>
+
+</try>
