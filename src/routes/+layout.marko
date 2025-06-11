@@ -5,27 +5,34 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A basic Marko app.">
+    <html-script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></html-script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css" />
+    <html-script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js"></html-script>
     <title>${$global.meta.pageTitle || "Marko"}</title>
   </head>
   <body>
-    <${input.content}/>
+
+    <div class="ui fixed menu">
+      <div class="ui container">
+        <a href="/" class="header item">
+          <img class="logo" src="./logo.svg" alt="Logo">&nbsp; Sample APIs
+        </a>
+
+        <a href="/" class="item">
+          <i class="home icon"></i>
+          Home
+        </a>
+
+        <a href="/characters" class="item">
+          <i class="users icon"></i>
+          Characters
+        </a>
+      </div>
+    </div>
+
+    <main class="ui main container" style="margin-top: 4em; margin-bottom: 4em;">
+      <${input.content}/>
+    </main>
+    
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    font-family: system-ui;
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    color: #fff;
-    background: #15151e;
-  }
-  code {
-    color: #fc0;
-  }
-  a {
-    color: #09c;
-  }
-</style>
