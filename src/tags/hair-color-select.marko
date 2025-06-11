@@ -1,0 +1,34 @@
+export interface Input {
+    value?: string;
+}
+
+<try>
+
+  <@placeholder>Loading...</@placeholder>
+  <@catch|err|>${err.message}</@catch>
+  
+    <await|items|=fetch(new URL("/api/characters/hair_color", $global.url.origin)).then(res => res.json())>
+
+        <div class="six wide field">
+            <label>Hair Color</label>
+            <div class="ui selection dropdown">
+            <input type="hidden" name="hairColor" value=input.value/>
+            <i class="dropdown icon"/>
+            <div class="default text">Choose</div>
+            <div class="menu">
+                <for|item|of=items>        
+                <div class="item" data-value=item>${item}</div>
+                </for>
+            </div>
+            </div>
+        </div>
+
+    </await>
+
+</try>
+
+<html-script>
+  $(document).ready(function() {
+    $('.selection.dropdown').dropdown(); 
+  });
+</html-script>
